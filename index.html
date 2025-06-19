@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Le Jardin - Restaurante gourmet francês em São Paulo. Experiência gastronômica única com pratos sofisticados e ambiente requintado.">
+    <meta name="keywords" content="restaurante francês, gastronomia, fine dining, São Paulo, comida gourmet">
+    <title>Le Jardin - Experiência Gastronômica Francesa em São Paulo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1612;
+            --accent: #d4af37;
+            --accent-dark: #b8941f;
+            --cream: #f8f6f0;
+            --warm-white: #fefdfb;
+            --text-light: #f8f6f0;
+            --text-muted: #c9c5b8;
+            --text-dark: #2c2a26;
+            --border: #3d3a32;
+            --shadow: rgba(212, 175, 55, 0.15);
+            --gradient: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #d4af37 100%);
+            --gradient-dark: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+        p, a, span, li {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 1.6rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .slide-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .slide-3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 3rem;
+            animation: fadeInUp 1.5s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .btn-secondary {
+    border-color: transparent;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--accent);
+    background: none;
+    padding: 1.2rem 0;
+    position: relative;
+    overflow: visible; /* Alterado de hidden para visible */
+}
+
+.btn-secondary::before {
+    content: none; /* Remove o pseudo-elemento que causa o fundo amarelo */
+}
+
+.btn-secondary:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+    background: transparent; /* Garante que não terá fundo */
+    box-shadow: none; /* Remove qualquer sombra */
+    border-bottom-color: var(--accent-dark); /* Escurece ligeiramente a linha */
+}
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-content {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .about-image {
+            animation: fadeInRight 1s ease-out;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--accent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--cream);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .signature img {
+            width: 120px;
+            filter: invert(80%) sepia(40%) saturate(500%) hue-rotate(5deg);
+        }
+
+        .signature div p:first-child {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 8rem 3rem;
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-tab:hover, .menu-tab.active {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .menu-category {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 3rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .menu-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dotted var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateX(10px);
+        }
+
+        .menu-item-info h4 {
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item-info h4 i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .menu-item-info p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .menu-price {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        /* Reservations Section */
+        .reservations {
+            padding: 8rem 3rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .reservations-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .reservations-image {
+            height: 500px;
+            border: 2px solid var(--accent);
+            background: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80') center/cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .reservations-form {
+            background: rgba(26, 22, 18, 0.9);
+            padding: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .experience-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(26, 22, 18, 0.5);
+            border: 1px solid var(--border);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            transform: translateX(-50%) scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover::before {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .experience-card h3 {
+            font-size: 1.8rem;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-card p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 1rem;
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 3rem 3rem;
+            background: var(--primary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: block;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .map-container {
+            height: 250px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+                transform: translateY(0);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .about, .reservations-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .reservations-image {
+                order: -1;
+                height: 400px;
+            }
+
+            .nav-menu {
+                gap: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--primary);
+                flex-direction: column;
+                gap: 0;
+                transition: all 0.5s ease;
+                padding-top: 2rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                padding: 1.5rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero,
+            .about,
+            .menu,
+            .reservations,
+            .experience,
+            .gallery,
+            footer {
+                padding: 4rem 2rem;
+            }
+
+            .reservations-form {
+                padding: 2rem;
+            }
+        }
+@media (max-width: 480px) {
+    .hero-content {
+        padding-top: 60px; /* Valor menor para telas muito pequenas */
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i>
+                Le Jardin
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#reservations">Reservas</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide slide-1"></div>
+            <div class="hero-slide slide-2"></div>
+            <div class="hero-slide slide-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Fine Dining Experience</div>
+            <h1>Le Jardin</h1>
+            <p class="hero-description">Uma jornada gastronômica inesquecível onde cada prato é uma obra de arte e cada momento é uma celebração dos sentidos</p>
+            <div class="hero-cta">
+                <a href="#reservations" class="btn">Reservar Mesa</a>
+                <a href="#menu" class="btn btn-secondary">Ver Menu</a>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content scroll-reveal">
+            <div class="section-subtitle">Nossa História</div>
+            <h2 class="section-title">Tradição & Inovação</h2>
+            <p>Desde 1985, Le Jardin tem sido sinônimo de excelência gastronômica. Nossa cozinha combina técnicas clássicas francesas com ingredientes locais da mais alta qualidade.</p>
+            <p>Nosso Chef Executivo, formado nas melhores escolas culinárias da França, criou um menu que celebra tanto a tradição quanto a inovação, oferecendo uma experiência única a cada visita.</p>
+            <p>Cada prato é cuidadosamente elaborado para despertar todos os seus sentidos, em um ambiente sofisticado e acolhedor que torna cada refeição uma ocasião especial.</p>
+            
+            <div class="signature">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80' viewBox='0 0 200 80'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='2' d='M10,60 Q40,30 70,60 T130,40 Q160,20 190,50'/%3E%3C/svg%3E" alt="Assinatura do Chef">
+                <div>
+                    <p>Jean-Luc Dubois</p>
+                    <p>Chef Executivo</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-image scroll-reveal">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80" alt="Interior do restaurante Le Jardin">
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="menu-container">
+            <div class="section-subtitle scroll-reveal">Nosso Menu</div>
+            <h2 class="section-title scroll-reveal">Criações Gastronômicas</h2>
+            
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-category="entradas">Entradas</button>
+                <button class="menu-tab" data-category="principais">Pratos Principais</button>
+                <button class="menu-tab" data-category="sobremesas">Sobremesas</button>
+                <button class="menu-tab" data-category="vinhos">Vinhos</button>
+            </div>
+            
+            <div class="menu-grid">
+                <div class="menu-category scroll-reveal" data-category="entradas">
+                    <h3>Entradas</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4><i class="fas fa-star"></i> Foie Gras Poêlé</h4>
+                            <p>Com compota de figo e brioche artesanal</p>
+                        </div>
+                        <div class="menu-price">R$ 85</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Carpaccio de Salmão</h4>
+                            <p>Marinado em ervas finas e azeite trufado</p>
+                        </div>
+                        <div class="menu-price">R$ 68</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Escargots de Bourgogne</h4>
+                            <p>Tradicional receita francesa com manteiga de ervas</p>
+                        </div>
+                        <div class="menu-price">R$ 72</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4><i class="fas fa-star"></i> Tartar de Atum</h4>
+                            <p>Com abacate, gengibre e molho de soja trufado</p>
+                        </div>
+                        <div class="menu-price">R$ 78</div>
+                    </div>
+                </div>
+                
+                <div class="menu-category scroll-reveal" data-category="principais">
+                    <h3>Pratos Principais</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4><i class="fas fa-star"></i> Boeuf Wellington</h4>
+                            <p>Filé mignon envolvido em massa folhada com duxelles</p>
+                        </div>
+                        <div class="menu-price">R$ 185</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Linguado Meunière</h4>
+                            <p>Peixe fresco com manteiga clarificada e limão siciliano</p>
+                        </div>
+                        <div class="menu-price">R$ 145</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Canard aux Cerises</h4>
+                            <p>Pato confitado com molho de cerejas e batatas dauphinoise</p>
+                        </div>
+                        <div class="menu-price">R$ 165</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Risotto de Trufas</h4>
+                            <p>Arroz arbóreo com trufas negras frescas e parmesão</p>
+                        </div>
+                        <div class="menu-price">R$ 135</div>
+                    </div>
+                </div>
+                
+                <div class="menu-category scroll-reveal" data-category="sobremesas">
+                    <h3>Sobremesas</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Soufflé au Chocolat</h4>
+                            <p>Tradicional soufflé com chocolate belga</p>
+                        </div>
+                        <div class="menu-price">R$ 45</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Tarte Tatin</h4>
+                            <p>Torta invertida de maçã com sorvete de baunilha</p>
+                        </div>
+                        <div class="menu-price">R$ 38</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Crème Brûlée</h4>
+                            <p>Creme catalão com açúcar caramelizado</p>
+                        </div>
+                        <div class="menu-price">R$ 42</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4><i class="fas fa-star"></i> Profiteroles</h4>
+                            <p>Bolinhas de massa folhada com sorvete e calda de chocolate</p>
+                        </div>
+                        <div class="menu-price">R$ 48</div>
+                    </div>
+                </div>
+                
+                <div class="menu-category scroll-reveal" data-category="vinhos">
+                    <h3>Vinhos</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Château Margaux 2015</h4>
+                            <p>Bordeaux - França</p>
+                        </div>
+                        <div class="menu-price">R$ 1.250</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Dom Pérignon 2010</h4>
+                            <p>Champagne - França</p>
+                        </div>
+                        <div class="menu-price">R$ 980</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Catena Zapata 2018</h4>
+                            <p>Mendoza - Argentina</p>
+                        </div>
+                        <div class="menu-price">R$ 320</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Quinta do Crasto 2017</h4>
+                            <p>Douro - Portugal</p>
+                        </div>
+                        <div class="menu-price">R$ 280</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="reservations">
+        <div class="reservations-container">
+            <div class="reservations-form scroll-reveal">
+                <div class="section-subtitle">Faça sua reserva</div>
+                <h2 class="section-title">Reserve sua experiência</h2>
+                
+                <form id="reservation-form">
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Data</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Horário</label>
+                        <select id="time" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:30">21:30</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Número de pessoas</label>
+                        <select id="guests" required>
+                            <option value="1">1 pessoa</option>
+                            <option value="2">2 pessoas</option>
+                            <option value="3">3 pessoas</option>
+                            <option value="4">4 pessoas</option>
+                            <option value="5">5 pessoas</option>
+                            <option value="6">6 pessoas</option>
+                            <option value="7">7+ pessoas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Observações especiais</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Reservar Agora</button>
+                </form>
+            </div>
+            
+            <div class="reservations-image scroll-reveal"></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="section-subtitle scroll-reveal">A Experiência</div>
+        <h2 class="section-title scroll-reveal">Momentos Únicos</h2>
+        
+        <div class="experience-grid">
+            <div class="experience-card scroll-reveal">
+                <div class="experience-icon"><i class="fas fa-wine-bottle"></i></div>
+                <h3>Cave Exclusiva</h3>
+                <p>Mais de 500 rótulos cuidadosamente selecionados por nosso sommelier, incluindo vinhos raros e edições limitadas de todo o mundo.</p>
+            </div>
+            
+            <div class="experience-card scroll-reveal">
+                <div class="experience-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Chef's Table</h3>
+                <p>Uma experiência íntima na cozinha, onde você pode acompanhar o preparo do seu menu degustação personalizado pelo chef.</p>
+            </div>
+            
+            <div class="experience-card scroll-reveal">
+                <div class="experience-icon"><i class="fas fa-glass-cheers"></i></div>
+                <h3>Eventos Privados</h3>
+                <p>Salões exclusivos para celebrações especiais, com menu personalizado e serviço dedicado para até 50 convidados.</p>
+            </div>
+            
+            <div class="experience-card scroll-reveal">
+                <div class="experience-icon"><i class="fas fa-star"></i></div>
+                <h3>Menu Degustação</h3>
+                <p>Uma jornada gastronômica de 7 pratos que celebra a sazonalidade dos ingredientes e a criatividade da nossa cozinha.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="gallery-container">
+            <div class="section-subtitle scroll-reveal">Nossa Galeria</div>
+            <h2 class="section-title scroll-reveal">Momento de Sofisticação</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Prato gourmet do Le Jardin">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Interior do restaurante">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Chef preparando prato">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1564759077034-936b00e0c1c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sobremesa gourmet">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vinhos selecionados">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ambiente requintado">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Le Jardin</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Augusta, 1000<br>Jardins - São Paulo/SP<br>CEP: 01310-100</p>
+                <p><i class="fas fa-phone"></i> Telefone: (11) 3456-7890<br><i class="fab fa-whatsapp"></i> WhatsApp: (11) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> reservas@lejardin.com.br</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horários</h3>
+                <p><i class="far fa-clock"></i> Terça a Quinta: 19h às 24h</p>
+                <p><i class="far fa-clock"></i> Sexta e Sábado: 19h às 01h</p>
+                <p><i class="far fa-clock"></i> Domingo: 19h às 23h</p>
+                <p><i class="far fa-clock"></i> Segunda-feira: Fechado</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <a href="#reservations"><i class="fas fa-calendar-check"></i> Reservas Online</a>
+                <a href="#experience"><i class="fas fa-glass-cheers"></i> Eventos Privados</a>
+                <a href="#experience"><i class="fas fa-utensils"></i> Chef's Table</a>
+                <a href="#menu"><i class="fas fa-star"></i> Menu Degustação</a>
+                <a href="#experience"><i class="fas fa-wine-bottle"></i> Harmonização de Vinhos</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Localização</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.097427888912!2d-46.65390548502211!3d-23.56532218468134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1684520000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Le Jardin. Todos os direitos reservados. | Desenvolvido com excelência</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img src="" alt="Imagem ampliada">
+        </div>
+    </div>
+
+    <script>
+        // Menu Mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Hero Slider
+        const slider = document.querySelector('.hero-slider');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 3;
+            showSlide(currentSlide);
+        }, 5000);
+        
+        // Menu Tabs
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuCategories = document.querySelectorAll('.menu-category');
+        
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                menuTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const category = tab.dataset.category;
+                
+                // Hide all categories
+                menuCategories.forEach(cat => cat.style.display = 'none');
+                
+                // Show selected category
+                document.querySelectorAll(`[data-category="${category}"]`).forEach(cat => {
+                    cat.style.display = 'block';
+                });
+            });
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(212, 175, 55, 0.1)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+            
+            // Show/hide back to top button
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to top button
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Image Gallery Modal
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.querySelector('.modal');
+        const modalImg = document.querySelector('.modal-content img');
+        const modalClose = document.querySelector('.modal-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modalImg.src = imgSrc;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Form submission
+        const reservationForm = document.getElementById('reservation-form');
+        
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server here
+            alert('Reserva enviada com sucesso! Entraremos em contato para confirmar.');
+            reservationForm.reset();
+        });
+    </script>
+</body>
+</html>
